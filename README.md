@@ -1,44 +1,52 @@
 # @usemeridian/agent-skills
 
-Cross-vendor agent skills for [Meridian](https://usemeridian.app). Drop the Meridian visa-readiness loop into any agent that consumes the [SKILL.md](https://www.anthropic.com/news/agent-skills) format — Claude Code, Claude.ai web, Cursor, Codex CLI, Goose.
+Cross-vendor [agent skills](https://docs.claude.com/en/docs/agents-and-tools/agent-skills/overview) for [Meridian](https://usemeridian.app). Drops the Meridian visa-readiness loop into any agent that consumes the SKILL.md format — Claude Code, Claude.ai web, Cursor, Codex CLI, Goose.
 
 ## Install
 
 ```bash
-npx @usemeridian/agent-skills install
+npx -y @usemeridian/agent-skills install
 ```
 
-Installs all bundled skills into `~/.claude/skills/`. Restart your agent and the skill activates the next time a relevant message lands (the skill's frontmatter `description` is what the agent matches on).
+Installs all bundled skills into `~/.claude/skills/`. The `-y` flag skips the npm install-confirmation prompt on first run; drop it if you want to confirm before npx fetches the package. Restart your agent — the skill activates the next time a relevant message lands (the skill's frontmatter `description` is what the agent matches on).
 
 ### Other agents
 
 ```bash
-npx @usemeridian/agent-skills install --agent=cursor
-npx @usemeridian/agent-skills install --agent=codex
-npx @usemeridian/agent-skills install --agent=goose
+npx -y @usemeridian/agent-skills install --agent=cursor   # ~/.cursor/skills
+npx -y @usemeridian/agent-skills install --agent=codex    # ~/.codex/skills
+npx -y @usemeridian/agent-skills install --agent=goose    # ~/.goose/skills
 ```
 
 ### Custom path
 
 ```bash
-npx @usemeridian/agent-skills install --target=./.skills
+npx -y @usemeridian/agent-skills install --target=./.skills
 ```
 
 ### Pick a skill
 
 ```bash
-npx @usemeridian/agent-skills install meridian-visa
+npx -y @usemeridian/agent-skills install meridian-visa
+```
+
+### Global install (optional)
+
+```bash
+npm install -g @usemeridian/agent-skills
+agent-skills install
+agent-skills list
 ```
 
 ## What's in the box
 
 ```bash
-npx @usemeridian/agent-skills list
+npx -y @usemeridian/agent-skills list
 ```
 
 Today, one skill:
 
-- **meridian-visa** — the visa-readiness loop. Look up requirements, prep the vault, file the case, dispatch Meridian Computer to fill the consulate's portal. Anonymous tools work without login; user-scoped tools prompt for OAuth via Meridian on first call.
+- **visa-readiness** — the Meridian visa loop. Look up corridor rules, file the application, fill trip details + documents, run a readiness check, dispatch Meridian Computer to fill the consulate's portal, book the appointment, record the outcome. Anonymous tools (requirements_lookup, requirements_evaluate, requirements_submit_feedback) work without login; user-scoped tools prompt for OAuth via Meridian on first call.
 
 More skills land here as the surface grows.
 
