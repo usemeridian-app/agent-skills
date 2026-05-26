@@ -1,0 +1,43 @@
+{
+  "name": "@usemeridian/agent-skills",
+  "version": "0.1.0",
+  "description": "Cross-vendor agent skills for Meridian. Drops the Meridian visa-readiness loop into Claude Code, Claude.ai web, Cursor, Codex CLI, Goose, or any agent that consumes the SKILL.md format.",
+  "keywords": [
+    "meridian",
+    "visa",
+    "agent-skills",
+    "skill",
+    "claude",
+    "claude-code",
+    "cursor",
+    "codex",
+    "goose",
+    "mcp"
+  ],
+  "homepage": "https://usemeridian.app/agent-skills",
+  "bugs": "https://github.com/usemeridian-app/agent-skills/issues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/usemeridian-app/agent-skills.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Meridian (Saunter Works)",
+    "email": "support@usemeridian.app",
+    "url": "https://usemeridian.app"
+  },
+  "bin": {
+    "meridian-agent-skills": "./bin/cli.mjs"
+  },
+  "files": [
+    "bin/",
+    "skills/",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node --test test/"
+  }
+}
