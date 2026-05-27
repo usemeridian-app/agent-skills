@@ -4,7 +4,7 @@ description: Walks the Meridian visa-readiness loop. Use when the user mentions 
 license: MIT
 metadata:
   author: Meridian (Saunter Works)
-  version: 0.1.2
+  version: 0.1.3
   mcp-server: meridian
 ---
 

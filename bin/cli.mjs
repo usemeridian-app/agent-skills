@@ -12,7 +12,7 @@
 // path is ~/.claude/skills/; --target overrides it. The installer is a
 // plain file copy — no daemon, no telemetry, no network calls.
 
-import { cp, mkdir, readdir, stat } from "node:fs/promises";
+import { cp, mkdir, readdir, rm, stat } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join, resolve } from "node:path";
@@ -112,6 +112,11 @@ async function cmdInstall({ positional, flags }) {
 
   for (const skill of requested) {
     const dest = join(target, skill.name);
+    // Wipe the destination first so reinstalls drop files that were
+    // removed in newer versions (e.g. a retired reference file). `cp`
+    // alone MERGES into an existing directory, leaving stale content
+    // that can contradict the new SKILL.md.
+    await rm(dest, { recursive: true, force: true });
     await cp(skill.path, dest, { recursive: true });
     console.log(`installed ${skill.name} → ${dest}`);
   }

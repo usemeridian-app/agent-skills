@@ -66,7 +66,7 @@ The MCP server gives an assistant the tools. The skill tells it _when_ to use th
 skills/
 └── meridian-visa/
     ├── SKILL.md            # frontmatter (name + description) + the loop
-    └── reference/
+    └── references/
         ├── checklist.md    # universal document checklist
         └── corridors.md    # corridor-specific notes
 ```
